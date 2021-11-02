@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,9 +14,9 @@ namespace MyBlogProject.Models
         public int Id { get; set; }
 
         [Display(Name = "Blog Name")]
-        public string PostId { get; set; }
+        public string BlogtId { get; set; }
 
-        public string Author { get; set; }
+        public string AuthorId { get; set; }
 
         [Required]
         [StringLength(75, ErrorMessage = "The {0} must be at least {2} and at most {1} characters long.", MinimumLength = 2)]
@@ -48,5 +49,12 @@ namespace MyBlogProject.Models
 
         [NotMapped]
         public IFormFile Image { get; set; }
+
+        //Navigation Properties
+        public virtual Blog Blog { get; set; }
+        public virtual IdentityUser Author { get; set; }
+        public virtual ICollection<Tag> Tags { get; set; } = new HashSet<Tag>();
+        public virtual ICollection<Comment> Comments { get; set; } = new HashSet<Comment>();
+
     }
 }

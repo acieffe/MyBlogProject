@@ -18,8 +18,8 @@ namespace MyBlogProject.Models
         [Display(Name = "Tags")]
         public string Text { get; set; }
 
+        //Navigation Properties
         public virtual Post Post { get; set; }
-
         public virtual IdentityUser Author { get; set; }
 
     }

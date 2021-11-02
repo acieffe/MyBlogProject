@@ -37,7 +37,5 @@ namespace MyBlogProject.Models
 
         [NotMapped]
         public IFormFile Image { get; set; }
-
-
     }
 }

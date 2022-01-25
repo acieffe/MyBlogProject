@@ -15,8 +15,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="BlogtId" class="control-label"></label>
-                <input asp-for="BlogtId" class="form-control" />
-                <span asp-validation-for="BlogtId" class="text-danger"></span>
+                <select asp-for="BlogtId" class="form-control" asp-items="ViewBag.BlogtId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
@@ -30,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Content" class="control-label"></label>
-                <textarea asp-for="Content" class="form-control"></textarea>"
+                <textarea asp-for="Content" class="form-control"></textarea>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -61,10 +61,37 @@ namespace MyBlogProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                // ***Added for later ***
+                //var slug -_slugService.UrlFriendly(post.Title);
+                //if (!_slugService.IsUnique(slug))
+                //{
+                //    ModelState.AddModelError("Title", "The Title you entered cannot be used as it results");
+                //    ViewData["TagValues"] = string.Join(",", TagValues);
+                //    return View(post);
+                //}
+
+                //post.Slug = slug;
+                //post.ImageData = await _imageService.EncodeImageAsync(post.Image);
+                //post.ContentType = _imageService.ContentType(post.Image);
+
                 post.Created = DateTime.Now;
+
+                //var blogUserId = _userManager.GetUserId(User);
+                //post.BlogUserId = blogUserId;
 
                 _context.Add(post);
                 await _context.SaveChangesAsync();
+
+                //foreach (var tag in TagValues)
+                //{
+                //    _context.Add(new Tag()
+                //    {
+                //        PostId = post.Id,
+                //        BlogUserId = blogUserId,
+                //        Text = tag
+                //    });
+                //}
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BlogtId"] = new SelectList(_context.Blogs, "Id", "Name", post.BlogtId);
